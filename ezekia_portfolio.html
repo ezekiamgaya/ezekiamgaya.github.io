@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ezekia E. Mgaya — Copywriter & Content Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --gold: #c8962a;
+    --gold-light: #e8b84b;
+    --blue: #1a3a5c;
+    --blue-light: #2d5f8a;
+    --muted: #7a7060;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,150,42,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--blue);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    padding: 8rem 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.35rem 1rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-name span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 440px;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    animation: fadeUp 0.8s 0.45s ease both;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: var(--white);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .btn-primary:hover::after { transform: scaleX(1); }
+  .btn-primary:hover { background: var(--blue-light); }
+
+  .btn-secondary {
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .hero-right {
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s 0.2s ease both;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 80px solid rgba(200,150,42,0.08);
+    top: -100px; right: -100px;
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 40px solid rgba(200,150,42,0.06);
+    bottom: -50px; left: -50px;
+  }
+
+  .hero-card {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .hero-initial {
+    font-family: 'Playfair Display', serif;
+    font-size: 9rem;
+    font-weight: 900;
+    color: rgba(200,150,42,0.15);
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    z-index: 3;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(200,150,42,0.2);
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(5px);
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    padding: 8rem 4rem;
+    background: var(--white);
+    position: relative;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: var(--blue);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    padding: 2.5rem;
+    border: 1px solid #e8e0d0;
+    position: relative;
+    transition: all 0.4s;
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue));
+    transform: scaleX(0);
+    transition: transform 0.4s;
+    transform-origin: left;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(26,58,92,0.12);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-desc {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  /* ── PORTFOLIO ── */
+  .portfolio {
+    padding: 8rem 4rem;
+    background: var(--paper);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+  }
+
+  .portfolio-card {
+    background: var(--white);
+    overflow: hidden;
+    transition: all 0.4s;
+    border: 1px solid #e8e0d0;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(26,58,92,0.15);
+  }
+
+  .portfolio-header {
+    padding: 2.5rem 2.5rem 0;
+    position: relative;
+  }
+
+  .portfolio-industry {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .portfolio-client {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--blue);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .portfolio-location {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .portfolio-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-bottom: 1.5rem;
+  }
+
+  .portfolio-body {
+    padding: 0 2.5rem 2.5rem;
+  }
+
+  .portfolio-pieces {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .portfolio-pieces li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .portfolio-pieces li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .portfolio-tag {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(26,58,92,0.06);
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── NICHES ── */
+  .niches {
+    padding: 8rem 4rem;
+    background: var(--blue);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .niches::before {
+    content: 'NICHES';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .niches .section-tag { color: var(--gold-light); }
+  .niches .section-title { color: var(--white); }
+  .niches .section-subtitle { color: rgba(255,255,255,0.5); }
+
+  .niches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .niche-item {
+    padding: 2rem;
+    border: 1px solid rgba(200,150,42,0.2);
+    text-align: center;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .niche-item:hover {
+    border-color: var(--gold);
+    background: rgba(200,150,42,0.06);
+    transform: translateY(-4px);
+  }
+
+  .niche-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+  .niche-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .niche-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 8rem 4rem;
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .contact-info { }
+
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e8e0d0;
+  }
+
+  .contact-detail:last-of-type { border-bottom: none; }
+
+  .contact-icon {
+    width: 48px; height: 48px;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .contact-promise {
+    background: var(--paper);
+    padding: 3rem;
+    border-left: 4px solid var(--gold);
+    margin-top: 3rem;
+  }
+
+  .promise-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 1rem;
+  }
+
+  .promise-text {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .contact-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .available-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #e8e0d0;
+    background: var(--paper);
+    width: fit-content;
+  }
+
+  .available-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #2ecc71;
+    animation: pulse 2s infinite;
+  }
+
+  .available-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--blue);
+  }
+
+  .lang-badges {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .lang-badge {
+    padding: 0.6rem 1.2rem;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .lang-badge.secondary {
+    background: transparent;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+  }
+
+  .free-offer {
+    padding: 2.5rem;
+    background: var(--blue);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .free-offer::before {
+    content: '★';
+    position: absolute;
+    font-size: 8rem;
+    color: rgba(200,150,42,0.08);
+    right: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .free-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .free-text {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 2.5rem 4rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 300px; }
+    .hero-left { padding: 6rem 1.5rem 3rem; }
+    .services, .portfolio, .niches { padding: 5rem 1.5rem; }
+    .contact { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+    .hero-stats { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">E.E. Mgaya</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#niches">Niches</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Available for hire · Tanzania & Worldwide</div>
+    <h1 class="hero-name">
+      Ezekia E.<span>Mgaya</span>
+    </h1>
+    <p class="hero-desc">
+      Copywriter & Content Strategist helping businesses in Tanzania and worldwide attract more customers through powerful ads, video scripts, and WhatsApp content — in English and Swahili.
+    </p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-secondary">Work With Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-initial">EM</div>
+    <div class="hero-card">
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Industries Served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Languages</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Client Focus</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="reveal">
+    <div class="section-tag">What I Do</div>
+    <h2 class="section-title">Content That Converts Readers Into Buyers</h2>
+    <p class="section-subtitle">Every word I write has one goal — to bring your business more clients.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">✍️</span>
+      <div class="service-title">Ad Copywriting</div>
+      <p class="service-desc">Facebook and Instagram ads that stop the scroll, build trust fast, and drive real action from your target audience.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎬</span>
+      <div class="service-title">Video Scripts</div>
+      <p class="service-desc">60-second scripts for Reels, TikTok, and Facebook videos — structured to hook, engage, and convert viewers into clients.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💬</span>
+      <div class="service-title">WhatsApp Campaigns</div>
+      <p class="service-desc">Direct messages in English and Swahili that feel personal, build trust, and turn leads into paying customers.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📧</span>
+      <div class="service-title">Email Marketing</div>
+      <p class="service-desc">Professional email sequences that nurture your audience and drive consistent sales over time.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📱</span>
+      <div class="service-title">Social Media Content</div>
+      <p class="service-desc">Posts and captions for Instagram, Facebook, LinkedIn and TikTok that grow your audience and position you as an authority.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🇹🇿</span>
+      <div class="service-title">Bilingual Content</div>
+      <p class="service-desc">All content available in both English and Swahili — reaching every corner of the Tanzanian market and beyond.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="reveal">
+    <div class="section-tag">My Work</div>
+    <h2 class="section-title">Real Work. Real Businesses. Real Results.</h2>
+    <p class="section-subtitle">Each project is a complete marketing package built specifically for the client's industry and audience.</p>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-card reveal">
+      <div class="portfolio-header">
+        <div class="portfolio-industry">Real Estate · Tanzania</div>
+        <div class="portfolio-client">Danvast Land & Property</div>
+        <div class="portfolio-location">📍 Dar es Salaam — Kigamboni, Kisarawe, Bagamoyo</div>
+        <div class="portfolio-divider"></div>
+      </div>
+      <div class="portfolio-body">
+        <ul class="portfolio-pieces">
+          <li>Facebook & Instagram Ad Copy</li>
+          <li>WhatsApp Message — English & Swahili</li>
+          <li>60-Second Video Script</li>
+        </ul>
+        <div class="portfolio-tag">Land Sales & Investment</div>
+      </div>
+    </div>
+
+    <div class="portfolio-card reveal">
+      <div class="portfolio-header">
+        <div class="portfolio-industry">Grooming & Lifestyle · Tanzania</div>
+        <div class="portfolio-client">Cuts Digestion</div>
+        <div class="portfolio-location">📍 Dar es Salaam — Mobile Barbershop</div>
+        <div class="portfolio-divider"></div>
+      </div>
+      <div class="portfolio-body">
+        <ul class="portfolio-pieces">
+          <li>Facebook & Instagram Ad Copy</li>
+          <li>WhatsApp Message — English & Swahili</li>
+          <li>60-Second Video Script</li>
+          <li>5 Scroll-Stopping Hook Lines</li>
+        </ul>
+        <div class="portfolio-tag">Mobile Services & Bookings</div>
+      </div>
+    </div>
+
+    <div class="portfolio-card reveal">
+      <div class="portfolio-header">
+        <div class="portfolio-industry">Creative & Design · Tanzania</div>
+        <div class="portfolio-client">Creative Solutions</div>
+        <div class="portfolio-location">📍 Dar es Salaam — Mr. East | Daniel Steeven Sanga</div>
+        <div class="portfolio-divider"></div>
+      </div>
+      <div class="portfolio-body">
+        <ul class="portfolio-pieces">
+          <li>Facebook & Instagram Ad Copy</li>
+          <li>WhatsApp Message — English & Swahili</li>
+          <li>60-Second Video Script</li>
+          <li>LinkedIn Corporate Post</li>
+        </ul>
+        <div class="portfolio-tag">Branding & Visual Identity</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NICHES -->
+<section class="niches" id="niches">
+  <div class="reveal">
+    <div class="section-tag">Industries I Serve</div>
+    <h2 class="section-title">Focused. Specialized. Effective.</h2>
+    <p class="section-subtitle">I write best for industries where emotions drive decisions — and results matter.</p>
+  </div>
+  <div class="niches-grid reveal">
+    <div class="niche-item">
+      <span class="niche-icon">🏡</span>
+      <div class="niche-name">Real Estate</div>
+      <div class="niche-desc">Land, property, investment</div>
+    </div>
+    <div class="niche-item">
+      <span class="niche-icon">📚</span>
+      <div class="niche-name">Digital Coaching</div>
+      <div class="niche-desc">Courses, mentorship, consulting</div>
+    </div>
+    <div class="niche-item">
+      <span class="niche-icon">💪</span>
+      <div class="niche-name">Health & Fitness</div>
+      <div class="niche-desc">Gyms, coaches, supplements</div>
+    </div>
+    <div class="niche-item">
+      <span class="niche-icon">🎨</span>
+      <div class="niche-name">Creative Services</div>
+      <div class="niche-desc">Design, branding, events</div>
+    </div>
+    <div class="niche-item">
+      <span class="niche-icon">🛍️</span>
+      <div class="niche-name">E-Commerce</div>
+      <div class="niche-desc">Online stores, products</div>
+    </div>
+    <div class="niche-item">
+      <span class="niche-icon">🏪</span>
+      <div class="niche-name">Local Business</div>
+      <div class="niche-desc">Restaurants, salons, shops</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Let's Build Something Great Together</h2>
+
+    <div class="contact-detail">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-value">+255 769 957 648</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">ezekielibrahim85@gmail.com</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Dar es Salaam, Tanzania</div>
+      </div>
+    </div>
+
+    <div class="contact-promise">
+      <div class="promise-title">My Promise To Every Client</div>
+      <p class="promise-text">
+        Your first sample is always free. I respond within 24 hours. Every piece I write is built specifically for your business — never recycled, never generic.
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-visual reveal">
+    <div class="available-badge">
+      <div class="available-dot"></div>
+      <div class="available-text">Available for new projects right now</div>
+    </div>
+
+    <div class="lang-badges">
+      <div class="lang-badge">🇬🇧 English</div>
+      <div class="lang-badge secondary">🇹🇿 Swahili</div>
+    </div>
+
+    <div class="free-offer">
+      <div class="free-title">First Sample Is Free</div>
+      <p class="free-text">
+        Not sure if my writing is right for your business? I'll create one free marketing piece specifically for you — no payment, no pressure. If you love it, we work together. If not, you keep it anyway.
+      </p>
+    </div>
+
+    <div style="padding: 2rem; border: 1px solid #e8e0d0; background: var(--paper);">
+      <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--blue); margin-bottom: 0.8rem;">Response Time</div>
+      <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.7;">I respond to every message within 24 hours — usually much faster. WhatsApp is the quickest way to reach me.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Ezekia E. Mgaya</span> · Copywriter & Content Strategist · Dar es Salaam, Tanzania</p>
+  <p style="margin-top: 0.5rem;">Built for results. Written with purpose.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
